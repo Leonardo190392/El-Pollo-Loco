@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/mobile_btns/favicon_chicken.png">
+    <link rel="stylesheet" href="style.css">
+    <title>El Pollo Locco</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/setStoppableInterval.js"></script>
+    <script src="models/drawable-object.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/cloud.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/small-chicken.class.js"></script>
+    <script src="models/coins.class.js"></script>
+    <script src="models/bottle.class.js"></script>
+    <script src="models/status-bar.class.js"></script>
+    <script src="models/coin-bar.class.js"></script>
+    <script src="models/bottle-bar.class.js"></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/endboss.class.js"></script>
+    <script src="models/throwable-object-class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <div class="mobile-layer d-none"> <p>Pls rotate your Smartphone</p> </div>
+    <h1>El Pollo Loco</h1>
+    <div id="mainPage" class="main-page">
+
+        <div id="mainButtons">
+            <div style="display: flex; justify-content: space-evenly;">
+                <button id="gamestart-btn" class="start-btn" onclick="startGame()">Start Game</button>
+                <button id="gameRestart-btn" class="restart-btn d-none" style="margin-right: 0px;" onclick="location.reload()">Restart Game</button>
+                <button id="control-btn"class="control-btn" onclick="showControls()">Controls</button>
+                <button id="story-btn"class="story-btn" onclick="showStory()">Story</button>
+            </div>    
+        </div> 
+        
+        <div id="ingameBtn" class="ingame-btn-up d-none">
+            <div style="display: flex; gap: 4px;">
+                <div  class="ingame-btns" onclick="showControls()"><img src="img/mobile_btns/controls.png"></div>
+                <!--<button  class="ingame-btns" onclick="togglePause()"> <img src="img/mobile_btns/pause.png"></button>//--> 
+                <div  class="ingame-btns" onclick="muteSound()"> <img id="soundBtn" src="img/mobile_btns/play_sound.png"></div>
+                <div class="ingame-btns" onclick="fullscreen()"> <img src="img/mobile_btns/fullscreen.png"></div>
+            </div>
+        </div>
+
+        <canvas id="canvas" class="d-none" width="720"  height="480"></canvas>
+
+        <div id="lightbox" class="d-none"></div> 
+
+        <div class="gamestart">        
+            <img id="gameStart"  src="img/9_intro_outro_screens/start/startscreen_1.png" alt="" srcset="">
+        </div>
+
+        <div class="game-end"> 
+            <div id="gameEnd" class=" d-none">        
+                <img src="img/9_intro_outro_screens/game_over/oh no you lost!.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="game-win d-none"  id="gameWin"  >
+            <div>        
+                <p></p>
+            </div>
+        </div>  
+        
+        <div id="game-btns" class="mobile-btn-bottom d-none">
+            <div class="game-btn-left">
+                <div id="btnLeft" class="mobile-btns"><img src="img/mobile_btns/left.png"></div>
+                <div id ="btnRight"class="mobile-btns"><img src="img/mobile_btns/right.png"></div>
+            </div>
+            <div class="game-btn-right">
+                <div id="btnJump" class="mobile-btns"><img src="img/mobile_btns/up.png"></div>
+                <div id="btnThrow" class="mobile-btns"><img src="img/mobile_btns/throw.png"></div>
+            </div>
+        </div>
+     
+        <div id="controls" class="d-none controls">
+            <div class="close-controls" onclick="closeControls()">
+                <div style="height:30px ;"><img src="img/mobile_btns/close.png" alt="" srcset=""></div>
+            </div>
+            <table>
+                <tr>
+                    <th><img src="img/mobile_btns/left.png"></th>
+                    <th>LEFT</th>
+                </tr>
+                <tr>
+                    <th><img src="img/mobile_btns/right.png"></th>
+                    <th>RIGHT</th>
+                </tr>
+                <tr>
+                    <th><img src="img/mobile_btns/space.png" alt="" srcset=""> , <img src="img/mobile_btns/up.png"></th>
+                    <th>JUMP</th>
+                </tr>
+                <tr>
+                    <th><img src="img/mobile_btns/D.png" alt=""> , <img src="img/mobile_btns/throw.png"></th>
+                    <th>THROW BOTTLE</th>
+                </tr>
+            </table>
+        </div> 
+        
+        <div id="story" class="d-none controls">
+            <div class="close-controls" onclick="closeStory()">
+                <div style="height:30px ;"><img src="img/mobile_btns/close.png" alt="" srcset=""></div>          
+            </div>
+            <p style="width: 80%;">
+                Pepe is going to a big adventure. He is alone in a desert and have to come out. 
+                On his way, he will see many bad surprises. But he is a very strong man and challenge it all.  
+            </p> 
+        </div>
+
+    </div>
+</body>
+</html>

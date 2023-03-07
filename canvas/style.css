@@ -1,0 +1,376 @@
+@font-face {
+    font-family: 'zabras';
+    src: url('fonts/zabars.ttf') format('truetype');
+    /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+body {
+    font-family: 'zabras', Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('img/background_canvas/desert_bg.jpg');
+    background-position: center;
+
+    flex-direction: column;
+}
+
+canvas {
+    position: absolute;
+    display: block;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+}
+
+/*layer for info to rotate the Smartphone */
+.mobile-layer {
+    position: absolute;
+    color: whitesmoke;
+    font-size: 36px;
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/*Main Page*/
+.main-page {
+    position: relative;
+    max-width: 720px;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 64px;
+    letter-spacing: 2px;
+    text-shadow: 4px 2px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 16;
+}
+
+.gamestart,
+.gamestart img,
+.game-end,
+.game-end img {
+    position: absolute;
+    max-width: 720px;
+    height: 480px;
+    width: 100%;
+    top: 0;
+}
+
+.game-win {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    max-width: 720px;
+    height: 480px;
+    width: 100%;
+    top: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: aliceblue;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    text-align: center;
+}
+
+/*Controls Main Page , Table*/
+.controls {
+    position: absolute;
+    font-family: sans-serif;
+    background-color: burlywood;
+    height: 240px;
+    font-size: 26px;
+    z-index: 12;
+    text-align: left;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-controls {
+    background-color: rgb(243, 157, 45);
+    border-radius: 4px;
+    border: 2px solid black;
+    position: absolute;
+    font-weight: bold;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls-mobile {
+    position: absolute;
+    font-family: sans-serif;
+    background-color: burlywood;
+    height: 240px;
+    font-size: 26px;
+    z-index: 12;
+    text-align: left;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#lightbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+    max-width: 720px;
+    height: 100%;
+}
+
+#lightbox div {
+    position: absolute;
+    font-family: sans-serif;
+    margin-top: 16px;
+    left: 92%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    color: burlywood;
+}
+
+table img {
+    height: 30px;
+    width: 30px;
+}
+
+
+th {
+    padding-left: 30px;
+}
+
+tr {
+    height: 50px;
+}
+
+/*Buttons for start and endscreen*/
+#mainButtons {
+    width: 100%;
+    position: absolute;
+    padding-top: 20px;
+}
+
+.start-btn,
+.control-btn,
+.story-btn {
+    z-index: 3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: rgb(245, 200, 76);
+    border: solid 1.5px;
+    cursor: pointer;
+}
+
+.restart-btn {
+    z-index: 3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: rgb(245, 200, 76);
+    border: solid 1.5px;
+    cursor: pointer;
+}
+
+
+.start-btn:hover, .control-btn:hover, .restart-btn:hover, .story-btn:hover {
+    background-color: burlywood;
+}
+
+/* ingame Buttons*/
+.ingame-btns {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: burlywood;
+    color: rgb(255, 234, 208);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    z-index: 1;
+}
+
+.ingame-btns img {
+    height: 40px;
+    width: 40px;
+}
+
+.ingame-btn-up {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    height: 50px;
+    padding: 10px 15px;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+
+}
+
+
+
+/*Mobile Buttns*/
+.mobile-btn-bottom {
+    position: absolute;
+    bottom: 0;
+    justify-content: space-between;
+    width: 96%;
+    display: none;
+
+}
+
+.game-btn-right {
+    display: flex;
+    gap: 4px;
+
+}
+
+
+.game-btn-left {
+    display: flex;
+    gap: 4px;
+
+}
+
+.mobile-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 8px;
+    background-color: burlywood;
+    border: 1px solid;
+}
+
+.mobile-btns img {
+    height: 40px;
+    width: 40px;
+}
+
+
+.d-none {
+    display: none;
+}
+
+.fullscreen {
+    width: 100%;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+    #game-btns {
+        display: flex;
+    }
+
+}
+
+/*for Smartphone*/
+@media only screen and (max-width: 420px) {
+    canvas {
+        width: 100%;
+    }
+
+    .main-page {
+        width: 100%;
+    }
+
+    .mobile-layer {
+        display: block;
+    }
+
+    .controls {
+        font-size: 16px;
+    }
+    
+    .main-page {
+        display: none;
+    }
+
+}
+
+/*for Smartphone*/
+@media only screen and (max-height: 500px) {
+
+
+    canvas {
+        height: 100vh;
+        height: 100%;
+    }
+
+    .main-page {
+        height: 100vh;
+    }
+
+
+    h1 {
+        display: none;
+    }
+
+    .gamestart,
+    .gamestart img,
+    .game-end,
+    .game-end img {
+        height: 100vh;
+    }
+
+    .controls {
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+    }
+
+}
